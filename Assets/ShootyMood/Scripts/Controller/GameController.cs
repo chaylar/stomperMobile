@@ -134,7 +134,7 @@ namespace ShootyMood.Scripts.Handlers
             {
                 newSpawn = diContainer.InstantiatePrefabForComponent<EnemyModel>(friendlyPrefab);
                 newSpawn.isFriendly = true;
-                timeAddition *= -1;
+                timeAddition *= -2;
             }
              
             newSpawn.AttackDelayDecrementRatio = mobAttackDurationDegradeRatio;

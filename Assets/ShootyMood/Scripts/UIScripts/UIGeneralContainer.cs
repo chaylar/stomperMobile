@@ -11,6 +11,7 @@ namespace ShootyMood.Scripts.UIScripts
     {
         //[SerializeField] private UITimer uiTimer;
         [SerializeField] private UITimerBackwards uiTimer;
+        [SerializeField] private UIScore uiScore;
         //[SerializeField] private PlayerHealthBar playerHealthBar;
         [SerializeField] private MainMenu mainMenu;
 
@@ -26,8 +27,9 @@ namespace ShootyMood.Scripts.UIScripts
         private void SetToMenuState()
         {
             uiTimer.gameObject.SetActive(false);
+            uiScore.gameObject.SetActive(false);
             //playerHealthBar.gameObject.SetActive(false);
-            
+
             mainMenu.gameObject.SetActive(true);
             
             GameStateManager.Instance.SetState(GameStateManager.GameState.MENU);
@@ -36,8 +38,9 @@ namespace ShootyMood.Scripts.UIScripts
         private void SetToPlayState()
         {
             uiTimer.gameObject.SetActive(true);
+            uiScore.gameObject.SetActive(true);
             //playerHealthBar.gameObject.SetActive(true);
-            
+
             mainMenu.gameObject.SetActive(false);
             
             signalBus.Fire(new GameStarted());

@@ -10,9 +10,11 @@ namespace ShootyMood.Scripts.Config.Wave
     public class WavesConfig : ScriptableObject
     {
         [SerializeField] private float startLeftTime = 30;
+        [SerializeField] private int scoreAddition = 1;
         [SerializeField] public List<SingleWaveConfig> waveConfigs;
 
         public float StartLeftTime => startLeftTime;
+        public int ScoreAddition => scoreAddition;
     }
 
     [Serializable]

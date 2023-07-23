@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: WavesConfig
   m_EditorClassIdentifier: 
   startLeftTime: 30
+  scoreAddition: 1
   waveConfigs:
-  - waveSpawnCount: 4
+  - waveSpawnCount: 10
     spawnDuration: 2
     iterationSpawnCount: 1
-    timeAdditionOnDeath: 5
-    friendlyRatio: 0.9
+    timeAdditionOnDeath: 2
+    friendlyRatio: 0.1
     mobAttackDurationDecreaseAmount: 0
     mobEscapeDurationDecreaseAmount: 0
   - waveSpawnCount: 4
     spawnDuration: 1
     iterationSpawnCount: 1
-    timeAdditionOnDeath: 5
+    timeAdditionOnDeath: 4
     friendlyRatio: 0.3
     mobAttackDurationDecreaseAmount: 0.117
     mobEscapeDurationDecreaseAmount: 0.117
