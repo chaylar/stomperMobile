@@ -23,6 +23,9 @@ namespace Assets.ShootyMood.Scripts.UIScripts
 
         private Color textOrigColor;
 
+        private readonly float leftTimeUnderLimit = 1f;
+        private float leftTimeUnderLimitTimer = 0f;
+
         private void Start()
         {
             textOrigColor = timerText.color;
@@ -64,6 +67,17 @@ namespace Assets.ShootyMood.Scripts.UIScripts
 
             timerText.text = timeText;
             leftTime -= Time.deltaTime;
+
+            if(leftTime < 10f)
+            {
+                leftTimeUnderLimitTimer += Time.deltaTime;
+                if(leftTimeUnderLimitTimer > leftTimeUnderLimit)
+                {
+                    timerText.color = Color.red;
+                    timerText.DOColor(textOrigColor, .8f);
+                    leftTimeUnderLimitTimer = 0f;
+                }
+            }
         }
 
         private void OnGameStarted()

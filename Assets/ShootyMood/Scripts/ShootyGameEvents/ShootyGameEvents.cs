@@ -35,6 +35,11 @@
     {
         
     }
+
+    public struct AudioOptionChanged
+    {
+
+    }
     
     // public struct GameEnded
     // {

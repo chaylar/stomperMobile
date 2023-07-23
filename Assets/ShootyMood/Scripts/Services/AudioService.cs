@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.ShootyMood.Scripts.Managers;
 using ShootyMood.Scripts.ShootyGameEvents;
 using UnityEngine;
 using Zenject;
@@ -10,7 +11,8 @@ namespace ShootyMood.Scripts.Handlers
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioSource killAudioSource;
         [SerializeField] private AudioSource enemyAttackAudioSource;
-        
+        [SerializeField] private AudioSource musicAudioSource;
+
         [SerializeField] private AudioClip enemySpawnClip;
         [SerializeField] private AudioClip enemyKilledClip;
         [SerializeField] private AudioClip friendlyKilled;
@@ -23,6 +25,7 @@ namespace ShootyMood.Scripts.Handlers
             signalBus.Subscribe<EnemyKilled>(OnEnemyKilled);
             signalBus.Subscribe<EnemySpawned>(OnEnemySpawned);
             signalBus.Subscribe<PlayerGotDamage>(OnPlayerGotDamage);
+            signalBus.Subscribe<AudioOptionChanged>(OnAudioOptionChanged);
         }
         
         public void Dispose()
@@ -30,10 +33,16 @@ namespace ShootyMood.Scripts.Handlers
             signalBus.TryUnsubscribe<EnemyKilled>(OnEnemyKilled);
             signalBus.TryUnsubscribe<EnemySpawned>(OnEnemySpawned);
             signalBus.TryUnsubscribe<PlayerGotDamage>(OnPlayerGotDamage);
+            signalBus.TryUnsubscribe<AudioOptionChanged>(OnAudioOptionChanged);
         }
 
         private void OnEnemyKilled(EnemyKilled evt)
         {
+            if(!AudioOptionManager.Instance.AUDIO_ON)
+            {
+                return;
+            }
+
             if (evt.isFriendly)
             {
                 killAudioSource.clip = friendlyKilled;
@@ -50,14 +59,36 @@ namespace ShootyMood.Scripts.Handlers
 
         private void OnEnemySpawned(EnemySpawned evt)
         {
+            if (!AudioOptionManager.Instance.AUDIO_ON)
+            {
+                return;
+            }
+
             audioSource.clip = enemySpawnClip; 
             audioSource.Play();
         }
 
         private void OnPlayerGotDamage(PlayerGotDamage pg)
         {
+            if (!AudioOptionManager.Instance.AUDIO_ON)
+            {
+                return;
+            }
+
             enemyAttackAudioSource.clip = enemyAttackAudioClip; 
             enemyAttackAudioSource.Play();
+        }
+
+        private void OnAudioOptionChanged(AudioOptionChanged evt)
+        {
+            if(!AudioOptionManager.Instance.AUDIO_ON)
+            {
+                musicAudioSource.Stop();
+            }
+            else
+            {
+                musicAudioSource.Play();
+            }
         }
     }
 }

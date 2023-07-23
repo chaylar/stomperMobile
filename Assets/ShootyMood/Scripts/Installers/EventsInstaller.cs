@@ -20,6 +20,7 @@ namespace ShootyMood.Scripts.Installers
             Container.DeclareSignal<PlayerGotDamage>().OptionalSubscriber();
             Container.DeclareSignal<GameStarted>().OptionalSubscriber();
             Container.DeclareSignal<PlayButtonClickEvent>().OptionalSubscriber();
+            Container.DeclareSignal<AudioOptionChanged>().OptionalSubscriber();
         }
     }
 }
