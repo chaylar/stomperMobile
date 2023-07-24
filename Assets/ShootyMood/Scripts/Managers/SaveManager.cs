@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditor.ShaderKeywordFilter;
-using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using Zenject;
+﻿using UnityEngine;
 
 namespace Assets.ShootyMood.Scripts.Managers
 {
