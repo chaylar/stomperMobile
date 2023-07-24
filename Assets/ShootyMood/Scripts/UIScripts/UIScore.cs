@@ -1,4 +1,5 @@
-﻿using ShootyMood.Scripts.Config.Wave;
+﻿using Assets.ShootyMood.Scripts.Managers;
+using ShootyMood.Scripts.Config.Wave;
 using ShootyMood.Scripts.ShootyGameEvents;
 using System;
 using System.Runtime.CompilerServices;
@@ -18,12 +19,14 @@ namespace Assets.ShootyMood.Scripts.UIScripts
 
         public void Initialize()
         {
+            signalBus.Subscribe<PlayerKilled>(OnPlayerKilled);
             signalBus.Subscribe<EnemyKilled>(OnEnemyKilled);
             signalBus.Subscribe<GameStarted>(OnGameStarted);
         }
 
         public void Dispose()
         {
+            signalBus.TryUnsubscribe<PlayerKilled>(OnPlayerKilled);
             signalBus.TryUnsubscribe<EnemyKilled>(OnEnemyKilled);
             signalBus.TryUnsubscribe<GameStarted>(OnGameStarted);
         }
@@ -46,6 +49,12 @@ namespace Assets.ShootyMood.Scripts.UIScripts
         private void OnGameStarted(GameStarted evt)
         {
             score = 0;
+            scoreText.text = score.ToString();
+        }
+
+        private void OnPlayerKilled(PlayerKilled evt)
+        {
+            SaveManager.SaveScore(score);
         }
         
     }
