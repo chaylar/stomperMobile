@@ -1,6 +1,7 @@
 ﻿using System;
 using Assets.ShootyMood.Scripts.Managers;
 using Assets.ShootyMood.Scripts.UIScripts;
+using DG.Tweening;
 using ShootyMood.Scripts.Managers;
 using ShootyMood.Scripts.ShootyGameEvents;
 using TMPro;
@@ -11,6 +12,7 @@ namespace ShootyMood.Scripts.UIScripts
 {
     public class UIGeneralContainer : MonoBehaviour, IInitializable, IDisposable
     {
+        [SerializeField] private CanvasGroup playerKilledInfoPanel;
         [SerializeField] private TextMeshProUGUI bestScoreText;
         [SerializeField] private TextMeshProUGUI lastScoreText;
 
@@ -27,6 +29,18 @@ namespace ShootyMood.Scripts.UIScripts
             SetToMenuState();
             signalBus.Subscribe<PlayerKilled>(OnPLayerKilled);
             signalBus.Subscribe<PlayButtonClickEvent>(OnPlayButtonClick);
+        }
+
+        private void PlayerKilled()
+        {
+            playerKilledInfoPanel.alpha = 1f;
+            playerKilledInfoPanel.gameObject.SetActive(true);
+            playerKilledInfoPanel.DOFade(0f, 3.6f).OnComplete(DisableKilledInfoPanel);
+        }
+
+        private void DisableKilledInfoPanel()
+        {
+            playerKilledInfoPanel.gameObject.SetActive(false);
         }
 
         private void SetToMenuState()
@@ -63,6 +77,7 @@ namespace ShootyMood.Scripts.UIScripts
 
         private void OnPLayerKilled(PlayerKilled evy)
         {
+            PlayerKilled();
             SetToMenuState();
         }
 
