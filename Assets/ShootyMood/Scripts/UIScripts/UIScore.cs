@@ -60,7 +60,7 @@ namespace Assets.ShootyMood.Scripts.UIScripts
             score = score < 0 ? 0 : score;
             scoreText.text = score.ToString();
 
-            if (score % 20 == 0)
+            if (score % 10 == 0)
             {
                 InstantiateParticle();
             }

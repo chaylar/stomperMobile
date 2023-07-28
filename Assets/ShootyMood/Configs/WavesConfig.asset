@@ -25,35 +25,35 @@ MonoBehaviour:
   - waveSpawnCount: 10
     spawnDuration: 1.8
     iterationSpawnCount: 1
-    timeAdditionOnDeath: 4
+    timeAdditionOnDeath: 2
     friendlyRatio: 0.2
     mobAttackDurationDecreaseAmount: 0.1
     mobEscapeDurationDecreaseAmount: 0.1
   - waveSpawnCount: 10
     spawnDuration: 1.4
     iterationSpawnCount: 1
-    timeAdditionOnDeath: 4
+    timeAdditionOnDeath: 2
     friendlyRatio: 0.3
     mobAttackDurationDecreaseAmount: 0.15
     mobEscapeDurationDecreaseAmount: 0.15
   - waveSpawnCount: 10
     spawnDuration: 1
     iterationSpawnCount: 1
-    timeAdditionOnDeath: 4
+    timeAdditionOnDeath: 3
     friendlyRatio: 0.35
     mobAttackDurationDecreaseAmount: 0.2
     mobEscapeDurationDecreaseAmount: 0.2
   - waveSpawnCount: 20
     spawnDuration: 0.8
     iterationSpawnCount: 1
-    timeAdditionOnDeath: 4
+    timeAdditionOnDeath: 3
     friendlyRatio: 0.6
     mobAttackDurationDecreaseAmount: 0.35
     mobEscapeDurationDecreaseAmount: 0.35
   - waveSpawnCount: 10
     spawnDuration: 0.6
     iterationSpawnCount: 1
-    timeAdditionOnDeath: 4
+    timeAdditionOnDeath: 3
     friendlyRatio: 0.65
     mobAttackDurationDecreaseAmount: 0.4
     mobEscapeDurationDecreaseAmount: 0.4
