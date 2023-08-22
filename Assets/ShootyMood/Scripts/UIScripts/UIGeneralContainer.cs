@@ -16,10 +16,8 @@ namespace ShootyMood.Scripts.UIScripts
         [SerializeField] private TextMeshProUGUI bestScoreText;
         [SerializeField] private TextMeshProUGUI lastScoreText;
 
-        //[SerializeField] private UITimer uiTimer;
         [SerializeField] private UITimerBackwards uiTimer;
         [SerializeField] private UIScore uiScore;
-        //[SerializeField] private PlayerHealthBar playerHealthBar;
         [SerializeField] private MainMenu mainMenu;
 
         [Inject] private SignalBus signalBus;
@@ -47,7 +45,6 @@ namespace ShootyMood.Scripts.UIScripts
         {
             uiTimer.gameObject.SetActive(false);
             uiScore.gameObject.SetActive(false);
-            //playerHealthBar.gameObject.SetActive(false);
 
             int lastScore = SaveManager.GetLastScore();
             int bestScore = SaveManager.GetBestScore();
@@ -67,7 +64,6 @@ namespace ShootyMood.Scripts.UIScripts
         {
             uiTimer.gameObject.SetActive(true);
             uiScore.gameObject.SetActive(true);
-            //playerHealthBar.gameObject.SetActive(true);
 
             mainMenu.gameObject.SetActive(false);
             

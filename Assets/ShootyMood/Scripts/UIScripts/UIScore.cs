@@ -20,8 +20,6 @@ namespace Assets.ShootyMood.Scripts.UIScripts
         [Inject] private WavesConfig wavesConfig;
         [Inject] private SignalBus signalBus;
 
-        //private Vector3 uiParticleStartingScale;
-
         private int score = 0;
 
         private void OnDisable()

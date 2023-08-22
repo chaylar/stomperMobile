@@ -11,14 +11,11 @@ namespace ShootyMood.Scripts.Handlers
     {
         [SerializeField] private Animator attackAnimator;
 
-        // TODO : Move these to config!
         [SerializeField] private float readyScaleMultiplier = 1.1f;
         [SerializeField] private float attackScaleMultiplier = 1.2f;
-        //
         
         [Inject] private PlayerHitHandler playerHitHandler;
 
-        //
         private float attackTimer = 0;
         private bool isReady = false;
         private bool attackCompleted = false;
@@ -26,7 +23,6 @@ namespace ShootyMood.Scripts.Handlers
         private readonly string attackAnimTriggerParam = "Attack";
         private readonly string readyAnimTriggerParam = "ReadyAttack";
         
-        //
         private Vector3 startingScale;
 
         private void Start()

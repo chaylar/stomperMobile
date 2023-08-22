@@ -20,9 +20,7 @@ namespace Assets.ShootyMood.Scripts.Handlers.Enemy
 
         [Inject] private SignalBus signalBus;
 
-        //
         private float dissapearTimer = 0;
-
 
         void FixedUpdate()
         {
